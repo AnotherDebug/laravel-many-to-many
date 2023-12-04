@@ -85,18 +85,16 @@
                             <img id="imagePreview"
                                 src="{{ old('image') ? asset('storage/' . old('image')) : 'https://via.placeholder.com/200x200' }}"
                                 class="img-fluid" alt="">
-                            {{-- <p><strong>Name Photo:</strong>{{ old('image_original_name') }}</p> --}}
                         </div>
                         <div class="mb-3">
                             <label for="description" class="form-label "><strong>Description:</strong></label>
-                            <div id="editor" class="ck-editor__editable">
-                                <textarea class="form-control @error('description') is-invalid @enderror " id="description" rows="3"
-                                    name="description" onkeyup="conto(500)">{{ old('description') }}</textarea>
-                                @error('description')
+
+                                <textarea id="editor" class="form-control ck-editor__editable @error('editor') is-invalid @enderror " rows="3"
+                                    name="description">{{ old('description') }}</textarea>
+                                @error('editor')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
-                            </div>
-                            <small class="text-muted">Characters remaining: <span id="char-count">500</span></small>
+                            {{-- <small class="text-muted">Characters remaining: <span id="char-count">500</span></small> --}}
                         </div>
 
                         <button type="submit" class="btn btn-primary">Add</button>
@@ -111,10 +109,10 @@
 
 
     <script>
-        function conto(maxLength) {
-            let c = document.getElementById('description').value;
-            document.getElementById('char-count').innerHTML = maxLength - c.length;
-        }
+        // function conto(maxLength) {
+        //     let c = document.getElementById('description').value;
+        //     document.getElementById('char-count').innerHTML = maxLength - c.length;
+        // }
 
         document.getElementById('image').addEventListener('change', function() {
             const preview = document.getElementById('imagePreview');

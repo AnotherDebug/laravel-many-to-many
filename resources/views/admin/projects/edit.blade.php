@@ -69,18 +69,21 @@
                         <img id="imagePreview" src="{{ asset('storage/' . old('image')) }}"
                             class="img-fluid @error('name') is-invalid @enderror" alt="">
                         <p><strong>Name Photo:</strong>
-                        <p> {{ $project->image_original_name }}</p>
+                         {{ $project->image_original_name }}
                         </p>
                     </div>
                 @endif
             </div>
 
             <div class="mb-3">
-                <label for="description" class="form-label">description</label>
-                <div id="editor" class="ck-editor__editable">
-                    <textarea class="form-control @error('description') is-invalid @enderror" id="description" rows="3"
+                <label for="description" class="form-label "><strong>Description:</strong></label>
+
+                    <textarea id="editor" class="form-control ck-editor__editable @error('editor') is-invalid @enderror " rows="3"
                         name="description">{{ $project->description }}</textarea>
-                </div>
+                    @error('editor')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
+                {{-- <small class="text-muted">Characters remaining: <span id="char-count">500</span></small> --}}
             </div>
             <button type="submit" class="btn btn-primary">Edit</button>
             <a href="{{ route('admin.projects.index') }}" type="submit" class="btn btn-secondary">Abort</a>
