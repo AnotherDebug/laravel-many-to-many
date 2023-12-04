@@ -38,9 +38,42 @@ aside {
     width: 100%;
 }
 
-.projectList {
+.projectList, .typeProjectList {
     width: calc(100% - 250px);
     overflow-y: auto;
+    .table {
+        tbody {
+            tr {
+                td:nth-child(4) {
+                a {
+                    color: black;
+                    padding: 5px;
+                                border-radius: 10px;
+                    &:hover {
+                        color: greenyellow;
+                        transition: 0.5s;
+                    }
+                }
+                }
+                td {
+                    ul {
+                        li {
+                            a {
+
+                                padding: 5px;
+                                border-radius: 10px;
+                                &:hover {
+                                    background-color: greenyellow ;
+
+                                    transition: 1s;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 .create {
