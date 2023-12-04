@@ -54,7 +54,8 @@
                                     type="checkbox"
                                     class="btn-check"
                                     id="technology_{{ $technology->id }}"
-                                    autocomplete="off" name="technologies[]"
+                                    autocomplete="off"
+                                    name="technologies[]"
                                     value="{{ $technology->id }}">
                                 <label class="btn btn-outline-primary" for="technology_{{ $technology->id }}">{{ $technology->name }}</label>
                                 @endforeach
