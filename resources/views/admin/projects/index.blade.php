@@ -19,17 +19,26 @@
                     <th scope="col">Project_name</th>
                     <th scope="col">Date_start</th>
                     <th scope="col">Type</th>
+                    <th scope="col">Technology</th>
                     {{-- <th scope="col">Description</th> --}}
                     <th scope="col">Options</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($projects as $project)
+                {{-- @dump($project->technologies) --}}
                     <tr>
                         <td>{{ $project->id }}</td>
                         <td>{{ $project->name }}</td>
                         <td>{{ date('d/m/Y', strtotime($project->date_start)) }}</td>
                         <td>{{ $project->type?->name ?? '-' }}</td>
+                        <td>
+                            @forelse ($project->technologies as $technology)
+                            <span class="badge text-bg-primary ">{{ $technology->name }}</span>
+                            @empty
+
+                            @endforelse
+                        </td>
                         {{-- <td>{{ $project->description }}</td> --}}
                         <td class="d-flex">
                             <a class="btn btn-info me-1"
