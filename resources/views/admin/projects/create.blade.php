@@ -47,6 +47,21 @@
                             </select>
                         </div>
                         <div class="mb-3">
+                            <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+
+                                @foreach ($technologies as $technology)
+                                <input
+                                    type="checkbox"
+                                    class="btn-check"
+                                    id="technology_{{ $technology->id }}"
+                                    autocomplete="off" name="technologies[]"
+                                    value="{{ $technology->id }}">
+                                <label class="btn btn-outline-primary" for="technology_{{ $technology->id }}">{{ $technology->name }}</label>
+                                @endforeach
+
+                            </div>
+                        </div>
+                        <div class="mb-3">
                             <label for="date_start" class="form-label fw-bolder">Date
                                 start:</label>
                             <input type="date" name="date_start"
@@ -73,7 +88,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="description" class="form-label "><strong>Description:</strong></label>
-                            <div id="editor" class="ck-editor__editable" >
+                            <div id="editor" class="ck-editor__editable">
                                 <textarea class="form-control @error('description') is-invalid @enderror " id="description" rows="3"
                                     name="description" onkeyup="conto(500)">{{ old('description') }}</textarea>
                                 @error('description')
