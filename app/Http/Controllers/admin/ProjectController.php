@@ -74,6 +74,11 @@ class ProjectController extends Controller
         $new_project = Project::create($form_data);
 
 
+        if (array_key_exists('technologies', $form_data)) {
+            $new_project->technologies()->attach($form_data['technologies']);
+        }
+
+
         return redirect()->route('admin.projects.create', $new_project)->with('success', 'Progetto inserito con successo');
     }
 
