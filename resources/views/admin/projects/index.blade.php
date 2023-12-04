@@ -36,7 +36,7 @@
                             @forelse ($project->technologies as $technology)
                             <span class="badge text-bg-primary ">{{ $technology->name }}</span>
                             @empty
-
+                            <span class="badge text-bg-warning">No technology</span>
                             @endforelse
                         </td>
                         {{-- <td>{{ $project->description }}</td> --}}
