@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="projectList ms-5 pt-5 pe-5">
-        <h1 class="text-center">Type-Project List</h1>
+        <h1 class="text-center">Type-Projects List</h1>
 
         <table class="table">
             <thead>
@@ -40,5 +40,5 @@
 
 
 @section('title')
-    | Type-Project List
+    | Type-Projects List
 @endsection
