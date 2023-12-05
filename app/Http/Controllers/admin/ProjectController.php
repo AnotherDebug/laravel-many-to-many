@@ -24,10 +24,11 @@ class ProjectController extends Controller
         return view('admin.projects.index', compact('projects'));
     }
 
-    public function typeProjects()
+    public function typeProjects(Type $type)
     {
-        $types = Type::all();
-        return view('admin.projects.type-projects', compact('types'));
+
+
+        return view('admin.projects.type-projects', compact('type'));
     }
     /**
      * Show the form for creating a new resource.
