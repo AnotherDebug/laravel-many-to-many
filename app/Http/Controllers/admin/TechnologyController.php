@@ -24,8 +24,7 @@ class TechnologyController extends Controller
     public function projectsTechnologies(Technology $technology)
     {
         $projects = $technology->projects;
-        $technologies = Technology::all();
-        return view('admin.technologies.projects-technologies', compact('projects', 'technologies'));
+        return view('admin.technologies.projects-technologies', compact('projects', 'technology'));
     }
 
     /**
