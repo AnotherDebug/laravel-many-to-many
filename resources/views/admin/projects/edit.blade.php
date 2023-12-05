@@ -21,6 +21,17 @@
                     value="{{ $project->name }}">
             </div>
             <div class="mb-3">
+                <label for="type_id" class="form-label fw-bolder">Type:</label>
+                <select name="type_id" class="form-select" id="type_id">
+                    <option value="">Choose the type:</option>
+                    @foreach ($types as $type)
+                        <option value="{{ $type->id }}" @if ($type->id == old('type_id', $project?->type?->id)) selected @endif>
+                            {{ $type->name }}
+                        </option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="mb-3">
                 <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
 
                     @foreach ($technologies as $technology)
